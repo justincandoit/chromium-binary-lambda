@@ -19,7 +19,7 @@ class CustomInstall(build_py):
 
 setup(
     name = "chromium-binary-lambda",
-    version = "0.0.39",
+    version = "0.0.40",
     author = "Fabricio Silva",
     author_email = "fabricioadenir@gmail.com",
     description = "Binary of chromium for usin in lambda functions",

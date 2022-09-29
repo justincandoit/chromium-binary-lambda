@@ -38,12 +38,12 @@ pip install playwright
 ```
 ```py
 import asyncio
-from chromium_binary_lambda import executable_path, default_args
+from chromium_binary_lambda import chromium_executable, default_args
 from playwright.async_api import async_playwright
 
 async def main():
     client = await async_playwright().start()
-    browser = await client.chromium.launch(executable_path=executable_path, args=default_args)
+    browser = await client.chromium.launch(executable_path=chromium_executable(), args=default_args)
     page = await browser.new_page()
     await page.goto('https://example.com')
     await page.screenshot({'path': 'example.png'})

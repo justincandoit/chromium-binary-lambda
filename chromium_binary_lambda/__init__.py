@@ -4,7 +4,6 @@ import os
 import stat
 import sys
 from io import BytesIO
-from site import 
 from pathlib import Path
 from appdirs import AppDirs
 from zipfile import ZipFile
@@ -21,10 +20,35 @@ handler.setLevel(logging.INFO)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
+default_args = [
+    '--disable-background-networking',
+    '--disable-background-timer-throttling',
+    '--disable-breakpad',
+    '--disable-browser-side-navigation',
+    '--disable-client-side-phishing-detection',
+    '--disable-default-apps',
+    '--disable-dev-shm-usage',
+    '--disable-extensions',
+    '--disable-features=site-per-process',
+    '--disable-hang-monitor',
+    '--disable-popup-blocking',
+    '--disable-prompt-on-repost',
+    '--disable-sync',
+    '--disable-translate',
+    '--metrics-recording-only',
+    '--no-first-run',
+    '--safebrowsing-disable-auto-update',
+    '--enable-automation',
+    '--password-store=basic',
+    '--use-mock-keychain',
+]
+
 
 temp_path = os.environ.get('CHROMIUM_BINARY_LAMBDA_PATH', AppDirs('chromium_binary_lambda').user_data_dir)
+import site
 
-DOWNLOADS_FOLDER = Path(temp_path) / 'local-chromium'
+teste =site.getsitepackages()
+DOWNLOADS_FOLDER = Path(site.getsitepackages()[1]) /'chromium_binary_lambda'/ 'local-chromium'
 DOWNLOAD_HOST = 'https://storage.googleapis.com'
 BASE_URL = f'{DOWNLOAD_HOST}/chromium-browser-snapshots'
 
