@@ -54,4 +54,7 @@ asyncio.get_event_loop().run_until_complete(main())
 
 ## Credits
 
+- python setup.py sdist
+- twine upload --repository pypi ./dist/*.tar.gz
+
 ###### This package was created by [Fabricio Silva](https://github.com/fabricioadenir).
