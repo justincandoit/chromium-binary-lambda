@@ -43,7 +43,7 @@ setup(
         'console_scripts': ['chromedriver-path=chromium_binary_lambda:download_chromium'],
     },
     python_requires = ">=3.8",
-    install_requires=['certifi==2022.9.24', 'urllib3==1.26.12', 'tqdm==4.64.1', 'platformdirs'],
+    install_requires=['certifi==2022.9.24', 'urllib3==1.26.12', 'tqdm==4.64.1', 'platformdirs==4.0.0'],
     cmdclass={
         'build_py': CustomInstall
         }
