@@ -5,7 +5,8 @@ import stat
 import sys
 from io import BytesIO
 from pathlib import Path
-from appdirs import AppDirs
+# from appdirs import AppDirs
+from platformdirs import user_data_dir
 from zipfile import ZipFile
 
 import certifi
@@ -44,7 +45,8 @@ default_args = [
 ]
 
 
-temp_path = os.environ.get('CHROMIUM_BINARY_LAMBDA_PATH', AppDirs('chromium_binary_lambda').user_data_dir)
+# temp_path = os.environ.get('CHROMIUM_BINARY_LAMBDA_PATH', AppDirs('chromium_binary_lambda').user_data_dir)
+temp_path = os.environ.get('CHROMIUM_BINARY_LAMBDA_PATH', user_data_dir(appname='chromium_binary_lambda'))
 import site
 
 teste =site.getsitepackages()
